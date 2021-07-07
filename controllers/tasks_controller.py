@@ -32,6 +32,10 @@ def create_task():
 
 # SHOW
 # GET '/tasks/<id>'
+@tasks_blueprint.route("/tasks/<id>")
+def show_task(id):
+    task = task_repository.select(id)
+    return render_template("tasks/show.html", task=task)
 
 # EDIT
 # GET "tasks/<id>/edit"
