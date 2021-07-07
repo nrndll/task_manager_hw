@@ -53,7 +53,7 @@ def update_task(id):
     user_id = request.form["user_id"]
     duration = request.form["duration"]
     completed = request.form["completed"]
-    user = user_repository.select(id)
+    user = user_repository.select(user_id)
     task = Task(description, user, duration, completed, id)
     task_repository.update(task)
     return redirect("/tasks")
